@@ -78,13 +78,13 @@ struct SquareShape : Shape
 */
 class Point
 {
-    float m_x, m_y;
-    Point(float x, float y) : m_x(x), m_y(y){}
+    double m_x, m_y;
+    Point(double x, double y) : m_x(x), m_y(y){}
  public:
-     static Point NewCartesian(float x, float y) { 
+     static Point NewCartesian(double x, double y) {
          return { x,y }; 
      }
-     static Point NewPolar(float rho, float theta) {
+     static Point NewPolar(double rho, double theta) {
          return { rho*cos(theta), rho*sin(theta) };
      }
 };

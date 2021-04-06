@@ -37,7 +37,7 @@ struct Product
 */
 struct ProductFilter
 {
-    std::vector<Product*> by_color(std::vector<Product*> items, Color iColor)
+    std::vector<Product*> by_color(std::vector<Product*> items, Color&& iColor)
     {
         std::vector<Product*> result;
 
@@ -48,7 +48,7 @@ struct ProductFilter
         return result;
     }//by_color(...)
 
-    std::vector<Product*> by_size(std::vector<Product*> items, Size iSize)
+    std::vector<Product*> by_size(std::vector<Product*> items, Size&& iSize)
     {
         std::vector<Product*> result;
 
@@ -72,14 +72,14 @@ template <typename T> struct Specification
 };
 template <typename T> struct Filter 
 {
-    virtual std::vector<T*> filter(std::vector<T*> items, Specification<T>& spec) = 0;
+    virtual std::vector<T*> filter(std::vector<T*> items, Specification<T>&& spec) = 0;
 };
 
 
 struct GenericFilter : Filter<Product>
 {
     std::vector<Product*> filter( std::vector<Product*> items,
-                                  Specification<Product>& spec) override
+                                  Specification<Product>&& spec) override
     {
         std::vector<Product*> result;
         for (Product* item : items)
