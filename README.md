@@ -1,5 +1,5 @@
 # Design Patterns and SOLID principles
-![build](https://github.com/dkulik/DesignPatterns/workflows/build/badge.svg)
+![build Windows and Linux](https://github.com/dkulik/SoftwareArchitectureBestPractices/workflows/build/badge.svg)
 
 Design Patterns use cases.  
 
