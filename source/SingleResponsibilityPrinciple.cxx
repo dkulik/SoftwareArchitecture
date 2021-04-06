@@ -14,7 +14,7 @@ typedef std::string string;
  * should not take other responsibility.
  */
 
-// responsible to keep the entries in journal
+/* "Journal" is responsible to keep the entries in journal */
 struct Journal
 {
     
@@ -31,17 +31,19 @@ struct Journal
 
     /*!
     * WRONG! : persistance code 
-    * in case if change persistance logic we will have to change it in numerous classes.
+    * in case of change of persistance logic we will have to change it in numerous classes.
     * (ex. save in database instead of files)
+    
+    void save(string const& filename)
+    {
+        std::ofstream ofs(filename);
+        for (string entry : m_entries)
+        {
+            ofs << entry << std::endl;
+        }
+    }//void save(string const& filename)
+
     */
-    //void save(string const& filename)
-    //{
-    //    std::ofstream ofs(filename);
-    //    for (string entry : m_entries)
-    //    {
-    //        ofs << entry << std::endl;
-    //    }
-    //}//void save(string const& filename)
 };
 
 struct PersistenceManager

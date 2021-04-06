@@ -23,33 +23,49 @@ typedef std::string string;
 /*!
 * Wrong classes hierarchy
 */
-struct Rectangle {
-    int width, heigth;
-    // area = width*heigth;
+class Rectangle 
+{
+    protected:
+        int width, heigth;
+    public:
+        int Area() { return width * heigth; }
+        virtual void setWidth(int iWidth) {   width = iWidth; }
+        virtual void setHeigth(int iHeigth) { heigth = iHeigth; }
 };
 
-struct Square : Rectangle
+struct Square : public Rectangle
 {
-    // area = size*size; 
-    // ambiguity: setting "width" should set "heigth"="width" and vice versa
-    // unexpected bechaviour of "Rectangle" of type "Square"
+public:
+    /*!
+    * area = size*size;
+    * Ambiguity: setting "width" should set "heigth"="width" and vice versa
+    * - unexpected bechaviour of "Square" object used in context of "Rectangle"
+    */
+    void setWidth(int iWidth) override { width = heigth = iWidth; }
+    void setHeigth(int iHeigth) override  { heigth = width = iHeigth; }
 };
 
 /*!
 * correct classes hierarchy
 */
 struct Shape {
-    // int Area() = 0;
+    virtual int Area() = 0;
 };
 struct RectangleShape : Shape
 {   
     int width, heigth;
-    // implement Area() = width*heigth;
+    int Area() override
+    {
+        return width * heigth;
+    }
 };
 struct SquareShape : Shape
 {
     int size;
-    // implement Area() = size*size;
+    int Area() override
+    {
+        return size * size;
+    }
 };
 
 //-------------------------------------------------------------

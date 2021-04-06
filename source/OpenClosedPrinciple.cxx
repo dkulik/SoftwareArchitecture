@@ -57,13 +57,14 @@ struct ProductFilter
                 result.push_back(item);
 
         return result;
-    }//by_color(...)
+    }//by_size(...)
 };
 
 /*!
-* Specification pattern : 
-* - generic specification for every Quality
-* - generic filter for different products
+* Correct implementation:
+*   Specification pattern : 
+*   - generic specification for every Quality
+*   - generic filter for different products
 */
 template <typename T> struct Specification
 {

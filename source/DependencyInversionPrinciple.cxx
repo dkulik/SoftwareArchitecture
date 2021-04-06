@@ -58,13 +58,15 @@ struct Research
 {
     /*!
     * Wrong way to access Low-level module "Relationships"
-
+   
         Research(Relationships& iRelationships)
         {
-            // Tight coupling
-            // Problem:if Low-level modified = High Level is broken
-            // Exxample: access to "iRelationships.relations" restricted - High level code is broken
+            /* Tight coupling
+            * Problem:  if Low-level modified = High Level is broken
+            * Exxample: if access to "iRelationships.relations" restricted == High level code is broken
+            *\/
             auto& relations = iRelationships.relations;
+            
             for ( auto&[first, rel, second] : relations)
             {
                 if (first.name=="John" && rel== Relationship::parent)
