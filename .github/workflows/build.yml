@@ -15,3 +15,14 @@ jobs:
         cmake .. -DCMAKE_BUILD_TYPE=Release
         make -j
         ctest -C Release
+  build-windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: build and run
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build . --config 'Release'
+        ctest -C Release
