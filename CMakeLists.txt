@@ -11,8 +11,3 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/bin")
 
 # Include source code and headers.
 add_subdirectory(source)
-
-# run and test on Win
-# from build folder:
-# cmake .. | cmake --build . --config 'Release'| ctest -C Release
-
