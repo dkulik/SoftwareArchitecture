@@ -6,11 +6,11 @@ project(tests LANGUAGES CXX)
 enable_testing()
 
 # create an executables for each algorithm
-add_executable(1_SingleResponsibilityPrinciple SingleResponsibilityPrinciple.cxx)
-add_executable(2_OpenClosedPrinciple OpenClosedPrinciple.cxx)
-add_executable(3_LiskovSubstitutionPrinciple_FactoryPattern LiskovSubstitutionPrinciple_FactoryPattern.cxx)
-add_executable(4_InterfaceSegregationPrinciple InterfaceSegregationPrinciple.cxx)
-add_executable(5_DependencyInversionPrinciple DependencyInversionPrinciple.cxx)
+add_executable(1_SingleResponsibilityPrinciple SingleResponsibility_Principle.cxx)
+add_executable(2_OpenClosedPrinciple OpenClosed_Principle.cxx)
+add_executable(3_LiskovSubstitutionPrinciple_FactoryPattern LiskovSubstitution_Principle_FactoryPattern.cxx)
+add_executable(4_InterfaceSegregationPrinciple InterfaceSegregation_Principle.cxx)
+add_executable(5_DependencyInversionPrinciple DependencyInversion_Principle.cxx)
 
 # register test CTest
 add_test(NAME Single_Responsibility_Principle COMMAND 1_SingleResponsibilityPrinciple)
